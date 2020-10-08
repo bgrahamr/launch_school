@@ -1,0 +1,71 @@
+1. A method that returns the sum of two integers
+
+Plain English:
+Given two integers 
+Add to the two numbers together
+Return the result
+
+Pseudo-code:
+SET num1 = some integer
+SET num2 = some integer
+
+SET result = sum of num1 and num2
+PRINT result
+END
+
+
+2. A method that takes an array of strings, and returns a string that is all those strings concatenated together
+
+Plain English:
+Given an array of strings
+
+Set a result variable to an empty string
+Iterate though the strings of the array
+  - Concatenate each string to the result variable
+
+After iterating through the array, return the concatenated result
+
+Pseudo Code:
+Given an array of strings
+
+SET result = an empty string
+SET iterator = 1
+
+WHILE iterator <= length of array
+  Concatenate each current value to result
+  iterator += 1
+  
+PRINT result
+END
+
+
+3. A method that takes an array of integers, and returns a new array with every other element
+
+Plain English:
+Given an array of integers
+
+Initialize a result variable as an empty array
+Iterate through the arroay of integers
+  - For each iteration, determine whether the index is even
+  - If even, append the integer to result
+  - Otherwise, go to next iteration
+
+After iterating through array of integers, return the result array
+
+Pseudo Code:
+Given an array of integers
+
+SET result = an empty array
+SET iterator = 1
+
+WHILE iterator <= length of array
+  iterator += 1
+  IF index is even
+    append integer to result
+  ELSE
+    go to next interation
+    
+PRINT result
+END 
+  
+  
