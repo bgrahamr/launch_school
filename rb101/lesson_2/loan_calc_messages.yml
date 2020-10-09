@@ -11,7 +11,7 @@ term_invalid: "That term doesn't appear to valid (either not a number or less th
 
 processing: "Calculating your payment....beep...boop...beep..."
 rerun: "Would you like to calculate another payment? (enter 'yes' or 'y' to continue)"
-farewell: "Thanks for using Loan Calculator!"
+farewell: "Calc you later!"
 
 
 
