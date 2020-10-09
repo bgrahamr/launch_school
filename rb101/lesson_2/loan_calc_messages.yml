@@ -1,0 +1,21 @@
+
+welcome: "****Loan Calculator****"
+input_start: "Let's a see how much you'll be paying each month"
+amount_input: "Please enter the amount of your loan:"
+rate_input: "Please enter your interest (7.5% would be entered as 7.5):"
+term_input: "Please enter your loan term in years:"
+
+amount_invalid: "That amount doesn't appear to valid (either not a number or less than zero)."
+rate_invalid: "That rate doesn't appear to valid (either not a number or less than zero)."
+term_invalid: "That term doesn't appear to valid (either not a number or less than zero)."
+
+processing: "Calculating your payment....beep...boop...beep..."
+rerun: "Would you like to calculate another payment? (enter 'y' to continue)"
+farewell: "Thanks for using Loan Calculator!"
+
+
+
+
+
+
+
