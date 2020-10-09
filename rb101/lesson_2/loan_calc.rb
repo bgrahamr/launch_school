@@ -46,6 +46,7 @@ def calc_pmt(principal, rate, term_years)
 end
 
 prompt(MESSAGES['welcome'])
+sleep 2
 
 loop do
   prompt(MESSAGES['input_start'])
