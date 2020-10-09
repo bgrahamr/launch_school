@@ -41,6 +41,7 @@ def loan_input(message, error_message)
     end
   end
 
+  system('clear')
   result
 end
 
@@ -55,11 +56,13 @@ def calc_pmt(principal, rate, term_years)
 end
 
 # Greet User
+system('clear')
 prompt(MESSAGES['welcome'])
 sleep 2
 
 # Main loop; runs through monthly payment calculations until user opts out
 loop do
+  system('clear')
   prompt(MESSAGES['input_start'])
   sleep 2
 
@@ -78,4 +81,5 @@ loop do
   break unless %w(y yes).include?(rerun.downcase)
 end
 
+system('clear')
 prompt(MESSAGES['farewell'])
