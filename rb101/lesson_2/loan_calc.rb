@@ -22,7 +22,7 @@ end
 # Checks if string input is a positive integer or float
 def valid_num?(num)
   (integer?(num) || float?(num)) \
-  && num.to_f >= 0
+  && num.to_f > 0
 end
 
 # Prompts user for valid number and returns user input when valid
