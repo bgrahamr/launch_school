@@ -1,23 +1,31 @@
+# Program calculates and prints monthly loan payments
+# given loan amount, rate, and term from user
+
 require "yaml"
 MESSAGES = YAML.load_file('loan_calc_messages.yml')
 
+# Formats output messages
 def prompt(message)
   puts "=> #{message}"
 end
 
+# Checks if string input is an integer
 def integer?(num)
   num.to_i.to_s == num
 end
 
+# Checks if string input is a float
 def float?(num)
   num.to_f.to_s == num
 end
 
+# Checks if string input is a positive integer or float
 def valid_num?(num)
   (integer?(num) || float?(num)) \
   && num.to_f >= 0
 end
 
+# Prompts user for valid number and returns user input when valid
 def get_input(message, error_message)
   result = nil
 
@@ -36,6 +44,7 @@ def get_input(message, error_message)
   result
 end
 
+# Calculates monthly payment
 def calc_pmt(principal, rate, term_years)
   a = principal.to_f          # loan amount
   i = (rate.to_f / 100) / 12  # monthly interest rate
@@ -45,9 +54,11 @@ def calc_pmt(principal, rate, term_years)
   pmt
 end
 
+# Greet User
 prompt(MESSAGES['welcome'])
 sleep 2
 
+# Main loop; runs through monthly payment calculations until user opts out
 loop do
   prompt(MESSAGES['input_start'])
   sleep 2
@@ -64,7 +75,7 @@ loop do
 
   prompt(MESSAGES['rerun'])
   rerun = gets.chomp
-  break unless rerun.downcase.start_with?('y')
+  break unless %w(y yes).include?(rerun.downcase)
 end
 
 prompt(MESSAGES['farewell'])
