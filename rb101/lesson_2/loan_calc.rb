@@ -58,7 +58,7 @@ loop do
 
   prompt(MESSAGES['processing'])
   sleep 3
-  prompt("Your monthly payment will be #{pmt}")
+  prompt("Your monthly payment will be $#{format('%.2f', pmt)}")
   sleep 3
 
   prompt(MESSAGES['rerun'])
