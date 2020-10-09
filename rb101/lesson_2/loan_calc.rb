@@ -62,20 +62,24 @@ sleep 2
 
 # Main loop; runs through monthly payment calculations until user opts out
 loop do
+  # Prepare user for calculation
   system('clear')
   prompt(MESSAGES['input_start'])
   sleep 2
 
+  # Get loan pmt calculation inputs from user
   principal = loan_input(MESSAGES['amount_input'], MESSAGES['amount_invalid'])
   rate      = loan_input(MESSAGES['rate_input'], MESSAGES['rate_invalid'])
   term      = loan_input(MESSAGES['term_input'], MESSAGES['term_invalid'])
   pmt       = calc_pmt(principal, rate, term)
 
+  # Display 'processing' message and display payment to user
   prompt(MESSAGES['processing'])
   sleep 3
   prompt("Your monthly payment will be $#{format('%.2f', pmt)}")
   sleep 3
 
+  # Ask user if they would like to do another calculation
   prompt(MESSAGES['rerun'])
   rerun = gets.chomp
   break unless %w(y yes).include?(rerun.downcase)
