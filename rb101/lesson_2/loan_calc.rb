@@ -26,7 +26,7 @@ def valid_num?(num)
 end
 
 # Prompts user for valid number and returns user input when valid
-def get_input(message, error_message)
+def loan_input(message, error_message)
   result = nil
 
   loop do
@@ -63,9 +63,9 @@ loop do
   prompt(MESSAGES['input_start'])
   sleep 2
 
-  principal = get_input(MESSAGES['amount_input'], MESSAGES['amount_invalid'])
-  rate      = get_input(MESSAGES['rate_input'], MESSAGES['rate_invalid'])
-  term      = get_input(MESSAGES['term_input'], MESSAGES['term_invalid'])
+  principal = loan_input(MESSAGES['amount_input'], MESSAGES['amount_invalid'])
+  rate      = loan_input(MESSAGES['rate_input'], MESSAGES['rate_invalid'])
+  term      = loan_input(MESSAGES['term_input'], MESSAGES['term_invalid'])
   pmt       = calc_pmt(principal, rate, term)
 
   prompt(MESSAGES['processing'])
