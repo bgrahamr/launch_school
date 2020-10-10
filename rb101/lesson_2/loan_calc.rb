@@ -9,7 +9,7 @@ MESSAGES = YAML.load_file('loan_calc_messages.yml')
 def prompt(message, sleep_seconds=0, sys_clear=false)
   system('clear') if sys_clear
   puts "=> #{message}"
-  sleep(sleep_duration) if sleep_duration != 0
+  sleep(sleep_seconds) if sleep_seconds != 0
 end
 
 # Checks if string input is an integer
