@@ -4,9 +4,12 @@
 require "yaml"
 MESSAGES = YAML.load_file('loan_calc_messages.yml')
 
-# Formats output messages
-def prompt(message)
+# Formats output messages, option to pause program for
+# a given number of seconds; option to clear terminal
+def prompt(message, sleep_seconds=0, sys_clear=false)
+  system('clear') if sys_clear
   puts "=> #{message}"
+  sleep(sleep_duration) if sleep_duration != 0
 end
 
 # Checks if string input is an integer
@@ -26,18 +29,18 @@ def valid_num?(num)
 end
 
 # Prompts user for valid number and returns user input when valid
-def loan_input(message, error_message)
+def loan_input(input_prompt, error_prompt)
   result = nil
 
   loop do
-    prompt(message)
+    prompt(input_prompt)
     input = gets.chomp
 
     if valid_num?(input)
       result = input
       break
     else
-      prompt(error_message)
+      prompt(error_prompt)
     end
   end
 
@@ -47,37 +50,31 @@ end
 
 # Calculates monthly payment
 def calc_pmt(principal, rate, term_years)
-  a = principal.to_f          # loan amount
+  p = principal.to_f          # loan amount
   i = (rate.to_f / 100) / 12  # monthly interest rate
   n = term_years.to_f * 12    # term in months
 
-  pmt = a * (i / (1 - (1 + i)**(-n)))
+  pmt = p * (i / (1 - (1 + i)**(-n)))
   pmt
 end
 
 # Greet User
-system('clear')
-prompt(MESSAGES['welcome'])
-sleep 2
+prompt(MESSAGES['welcome'], 2, true)
 
 # Main loop; runs through monthly payment calculations until user opts out
 loop do
   # Prepare user for calculation
-  system('clear')
-  prompt(MESSAGES['input_start'])
-  sleep 2
+  prompt(MESSAGES['input_start'], 2, true)
 
-  # Get loan pmt calculation inputs from user
+  # Get loan pmt calculation inputs from user and calculate payment
   principal = loan_input(MESSAGES['amount_input'], MESSAGES['amount_invalid'])
   rate      = loan_input(MESSAGES['rate_input'], MESSAGES['rate_invalid'])
   term      = loan_input(MESSAGES['term_input'], MESSAGES['term_invalid'])
   pmt       = calc_pmt(principal, rate, term)
 
   # Display 'processing' message and display payment to user
-  prompt(MESSAGES['processing'])
-  sleep 3
-  prompt("Your monthly payment will be $#{format('%.2f', pmt)}")
-  sleep 3
+  prompt(MESSAGES['processing'], 3, true)
+  prompt("Your monthly payment will be $#{format('%.2f', pmt)}", 3, true)
 
   # Ask user if they would like to do another calculation
   prompt(MESSAGES['rerun'])
@@ -85,5 +82,4 @@ loop do
   break unless %w(y yes).include?(rerun.downcase)
 end
 
-system('clear')
-prompt(MESSAGES['farewell'])
+prompt(MESSAGES['farewell'], 2, true)
