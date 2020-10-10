@@ -6,7 +6,7 @@ MESSAGES = YAML.load_file('loan_calc_messages.yml')
 
 # Formats output messages, option to pause program for
 # a given number of seconds; option to clear terminal
-def prompt(message, sleep_seconds=0, sys_clear=false)
+def display(message, sleep_seconds=0, sys_clear=false)
   system('clear') if sys_clear
   puts "=> #{message}"
   sleep(sleep_seconds) if sleep_seconds != 0
@@ -33,14 +33,14 @@ def loan_input(input_prompt, error_prompt)
   result = nil
 
   loop do
-    prompt(input_prompt)
+    display(input_prompt)
     input = gets.chomp
 
     if valid_num?(input)
       result = input
       break
     else
-      prompt(error_prompt)
+      display(error_prompt)
     end
   end
 
@@ -59,12 +59,12 @@ def calc_pmt(principal, rate, term_years)
 end
 
 # Greet User
-prompt(MESSAGES['welcome'], 2, true)
+display(MESSAGES['welcome'], 2, true)
 
 # Main loop; runs through monthly payment calculations until user opts out
 loop do
   # Prepare user for calculation
-  prompt(MESSAGES['input_start'], 2, true)
+  display(MESSAGES['input_start'], 2, true)
 
   # Get loan pmt calculation inputs from user and calculate payment
   principal = loan_input(MESSAGES['amount_input'], MESSAGES['amount_invalid'])
@@ -73,13 +73,13 @@ loop do
   pmt       = calc_pmt(principal, rate, term)
 
   # Display 'processing' message and display payment to user
-  prompt(MESSAGES['processing'], 3, true)
-  prompt("Your monthly payment will be $#{format('%.2f', pmt)}", 3, true)
+  display(MESSAGES['processing'], 3, true)
+  display("Your monthly payment will be $#{format('%.2f', pmt)}", 3, true)
 
   # Ask user if they would like to do another calculation
-  prompt(MESSAGES['rerun'])
+  display(MESSAGES['rerun'])
   rerun = gets.chomp
   break unless %w(y yes).include?(rerun.downcase)
 end
 
-prompt(MESSAGES['farewell'], 2, true)
+display(MESSAGES['farewell'], 2, true)

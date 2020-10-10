@@ -1,7 +1,7 @@
 
 welcome: "****Welcome to Loan Calculator****"
 input_start: "Let's a see how much you'll be paying each month..."
-amount_input: "Please enter the amount of your loan:"
+amount_input: "Please enter the amount of your loan ('$2,000' would be entered as '2000'):"
 rate_input: "Please enter your interest rate (7.5% would be entered as 7.5):"
 term_input: "Please enter your loan term in years:"
 
