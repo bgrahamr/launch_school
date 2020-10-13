@@ -1,0 +1,45 @@
+greeting: >
+  "!!! Rock Paper Scissors Lizard Spock !!!
+  
+  Best of five rounds wins the game!"
+  
+explain_rules: >
+  "Would you like to see the rules? 
+  
+  (Enter 'Y' or 'y' to see rules, or any other key to continue:"
+
+rules: > 
+  Like the popular game 'Rock Paper Scissors' but with extra moves.
+  
+  - Rock trumps Scissors and Lizard
+  
+  - Paper trumps Rock and Spock
+  
+  - Scissors trumps Paper and Lizard
+  
+  - Lizard trumps Paper and Spock
+  
+  - Spock trumps Rock and Scissors
+  
+  
+  Press 'Enter' to start the game.
+  
+
+move_prompt: >
+  Make your move! Type:
+  
+  'r' for rock
+  
+  'p' for paper
+  
+  's' for scissors
+  
+  'l' for lizard
+  
+  'sp' for spock
+
+error_prompt: "Invalid move..."
+farewell: "Thanks for playing!"
+
+
+  
