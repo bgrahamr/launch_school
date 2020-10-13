@@ -54,7 +54,8 @@ def show_round_result(result)
   display("You #{round_message} that round!", sleep_sec: 3)
 end
 
-def show_game_result(result)
+def show_game_result(score_arr, points_to_win)
+  result = decide_game_result(score_arr, points_to_win)
   display(result, sleep_sec: 3)
 end
 
@@ -143,8 +144,7 @@ loop do
   break if winner?(score, wins_needed)
 end
 
-game_result = decide_game_result(score, wins_needed)
 show_scoreboard(score)
-show_game_result(game_result)
+show_game_result(score, wins_needed)
 
 show_farewell
