@@ -114,35 +114,27 @@ end
 wins_needed = 3       # wins needed for best of 5
 score       = [0, 0]  # [player_score, computer_score]
 
-# Greet User
 show_greeting()
 show_rules if read_rules?()
 
 loop do   # Main loop
-  # display score
   show_scoreboard(score)
 
-  # Get and display user choice
   player_move = get_player_move()
   show_player_move(player_move)
 
-  # Get and display comp choice
   comp_move = get_comp_move()
   show_comp_move(comp_move)
 
-  # determine round result and message; display result
   round_result  = decide_round_result(player_move, comp_move)
   show_round_result(round_result)
 
-  # Increment score and check for game winner
   score = update_score(score, round_result)
   break if winner?(score, wins_needed)
 end
 
-# Determine game winner and display result with score
 game_result = decide_game_result(score, wins_needed)
 show_scoreboard(score)
 show_game_result(game_result)
 
-# Bid farewell
 show_farewell()
