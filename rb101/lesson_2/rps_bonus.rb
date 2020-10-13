@@ -64,7 +64,7 @@ end
 
 def get_player_move()
   # Solicits user input and returns validated input
-  user_choice = String.new
+  user_choice = ''
 
   loop do
     display(MESSAGES['move_prompt'])
