@@ -115,7 +115,7 @@ def decide_game_result(score_arr, points_to_win)
 end
 
 # Initiate game
-wins_needed = 3       # wins neseded for best of 5
+wins_needed = 3       # wins needed for best of 5
 score       = [0, 0]  # [player_score, computer_score]
 
 show_greeting
