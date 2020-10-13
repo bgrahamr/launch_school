@@ -101,6 +101,11 @@ def decide_round_result(player, computer)
   trumps[player].include?(computer) ? 0 : 1
 end
 
+def initiate_score
+  score = [0, 0] # [player_score, computer_score]
+  score
+end
+
 def update_score(current_score, result)
   current_score[result] += 1 unless result.nil?
   current_score
@@ -115,8 +120,8 @@ def decide_game_result(score_arr, points_to_win)
 end
 
 # Initiate game
-wins_needed = 3       # wins needed for best of 5
-score       = [0, 0]  # [player_score, computer_score]
+wins_needed = 3 # wins needed for best of 5
+score = initiate_score
 
 show_greeting
 show_rules if read_rules?
