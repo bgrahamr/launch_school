@@ -25,11 +25,10 @@ def show_farewell
 end
 
 def show_rules
-  loop do
-    display(MESSAGES['rules'], sys_clear: true)
-    escape = gets.chomp
-    break if escape
-  end
+  # Rules are displayed to user; user presses 
+  # 'enter' to continue
+  display(MESSAGES['rules'], sys_clear: true)
+  gets
 end
 
 def show_scoreboard(score_arr)
