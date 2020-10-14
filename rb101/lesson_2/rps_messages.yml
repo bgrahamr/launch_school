@@ -1,8 +1,9 @@
 greeting: >
-  "!!! Rock Paper Scissors Lizard Spock !!!
+  "!!! Rock Paper Scissors Lizard Spock !!!"
   
-  Best of five rounds wins the game!"
-  
+sub_greeting: "Best of five rounds wins the game!"
+
+continue: "Press 'Enter' to continue"
 explain_rules: >
   "Would you like to see the rules? 
   
@@ -21,9 +22,6 @@ rules: >
   
   - Spock trumps Rock and Scissors
   
-  
-  Press 'Enter' to start the game.
-  
 
 move_prompt: >
   Make your move! Type:
@@ -39,7 +37,9 @@ move_prompt: >
   'sp' for spock
 
 error_prompt: "Invalid move..."
+
+another_round: "Would you like to play again? (Enter 'y' or 'yes')"
+
 farewell: "Thanks for playing!"
 
 
-  
